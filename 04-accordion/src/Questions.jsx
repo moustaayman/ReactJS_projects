@@ -12,4 +12,5 @@ const Questions = ({ questions }) => {
     </section>
   );
 };
+
 export default Questions;
