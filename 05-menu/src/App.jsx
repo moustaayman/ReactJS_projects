@@ -9,7 +9,7 @@ const App = () => {
     <main>
       <div className="menu">
         <Title title="our menu" />
-        <Menu menu={menu} />
+        <Menu menu={data} />
       </div>
     </main>
   );
