@@ -1,4 +1,12 @@
+import Title from "./Title";
+
 const App = () => {
-  return <h2>Menu Starter</h2>;
+  return (
+    <main>
+      <div className="menu">
+        <Title />
+      </div>
+    </main>
+  );
 };
 export default App;
