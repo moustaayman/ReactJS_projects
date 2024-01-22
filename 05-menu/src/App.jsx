@@ -11,14 +11,23 @@ const allUniqueCategories = [
 ];
 
 const App = () => {
-  const [menu, setMenu] = useState([data]);
+  const [menu, setMenu] = useState(data);
   const [categories, setCategories] = useState(allUniqueCategories);
+  //set up a function which updates the state to show only the menu items that belong to that category
+  const filterMenuItems = (category) => {
+    if (category === "all") {
+      setMenu(data);
+      return;
+    }
+    const newMenu = data.filter((item) => item.category === category);
+    setMenu(newMenu);
+  };
   return (
     <main>
       <div className="menu">
         <Title title="our menu" />
-        <Categories categories={categories} />
-        <Menu menu={data} />
+        <Categories categories={categories} filterMenuItems={filterMenuItems} />
+        <Menu menu={menu} />
       </div>
     </main>
   );

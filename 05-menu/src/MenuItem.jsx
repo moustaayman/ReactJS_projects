@@ -1,4 +1,4 @@
-const MenuItem = ({ title, category, price, img, desc }) => {
+const MenuItem = ({ title, price, img, desc }) => {
   return (
     <article className="menu-item">
       <img src={img} alt={title} className="img" />
