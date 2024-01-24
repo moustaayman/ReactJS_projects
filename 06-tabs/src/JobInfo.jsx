@@ -1,4 +1,7 @@
-const JobInfo = () => {
+import Duties from "./Duties";
+
+const JobInfo = ({ jobs, index }) => {
+  const { company, dates, duties, title } = jobs[index];
   return (
     <article className="job-info">
       <h3>{title}</h3>
