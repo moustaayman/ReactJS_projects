@@ -27,7 +27,7 @@ npm install uuid
 ```
 
 ```js
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 ```
 
 Since the job data does not have an id, you can install the uuid library to generate unique ids for each job. Use these ids instead of the index to set the key prop for the JobInfo and Duties components.
