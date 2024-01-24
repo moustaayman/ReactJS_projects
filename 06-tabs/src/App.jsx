@@ -28,7 +28,6 @@ const App = () => {
   return (
     <section className="jobs-center">
       <BtnContainer jobs={jobs} index={index} setIndex={setIndex} />
-      <BtnContainer jobs={jobs} index={index} setIndex={setIndex} />
       <JobInfo jobs={jobs} index={index} />
     </section>
   );
