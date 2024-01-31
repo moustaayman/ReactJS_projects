@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <Form />
-      <ColorList ColorList={colors} />
+      <ColorList colors={colors} />
     </>
   );
 };
