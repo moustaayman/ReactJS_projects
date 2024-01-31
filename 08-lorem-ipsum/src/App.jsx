@@ -2,7 +2,9 @@ import { useState } from "react";
 
 const App = () => {
   const [count, setCount] = useState(1);
-
+  const handleInputChange = () => {
+    setCount(count + 1);
+  };
   return (
     <section className="section-center">
       <h4>tired of boring lorem ipsum?</h4>
@@ -16,6 +18,7 @@ const App = () => {
           max="8"
           step="1"
           value={count}
+          onChange={handleInputChange}
         />
         <button className="btn" type="submit" onSubmit={handleSubmitForm}>
           generate
