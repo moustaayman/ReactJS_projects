@@ -1,16 +1,19 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Form = ({ addItem }) => {
   const [newItem, setNewItem] = useState("");
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!newItem) {
-      console.log("Please enter an item");
+      toast.error("please provide value");
       return;
     }
     addItem(newItem);
     setNewItem("");
   };
+
   return (
     <form onSubmit={handleFormSubmit}>
       <h4>grocery bud</h4>
@@ -18,6 +21,7 @@ const Form = ({ addItem }) => {
         <input
           type="text"
           className="form-input"
+          value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
         <button className="btn" type="submit">
