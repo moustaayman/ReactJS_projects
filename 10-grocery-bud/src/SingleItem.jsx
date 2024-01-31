@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const SingleItem = ({ item, editItem, removeItem }) => {
-  console.log(item);
   const [isChecked, setIsChecked] = useState(item.completed);
   return (
     <div className="single-item">
