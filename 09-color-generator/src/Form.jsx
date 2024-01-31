@@ -16,6 +16,9 @@ const Form = () => {
           value={color}
           onChange={(e) => setColor(e.target.value)}
         />
+        <button className="btn" type="submit" style={{ background: color }}>
+          submit
+        </button>
       </form>
     </section>
   );
