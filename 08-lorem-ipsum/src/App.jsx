@@ -1,15 +1,17 @@
 import { useState } from "react";
+import data from "./data";
 
 const App = () => {
   const [count, setCount] = useState(1);
-  const handleInputChange = () => {
-    setCount(count + 1);
+  const handleInputChange = (e) => {
+    setCount(e.target.value);
   };
+
   return (
     <section className="section-center">
       <h4>tired of boring lorem ipsum?</h4>
       <form className="lorem-form">
-        <label htmlFor="amount">paragraphs:</label>
+        <label>paragraphs:</label>
         <input
           type="number"
           name=""
