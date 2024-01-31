@@ -16,11 +16,22 @@ const App = () => {
     setItems(newItems);
     toast.success("item added to the list");
   };
+  const editItem = (itemId) => {
+    const newItems = items.map((item) => {
+      if (item.id === itemId) {
+        const newItem = { ...item, completed: !item.completed };
+        return newItem;
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
+  const removeItem = () => {};
   return (
     <section className="section-center">
       <ToastContainer position="top-center" />
       <Form addItem={addItem} />
-      <Items items={items} />
+      <Items items={items} editItem={editItem} removeItem={removeItem} />
     </section>
   );
 };
