@@ -26,7 +26,11 @@ const App = () => {
     });
     setItems(newItems);
   };
-  const removeItem = () => {};
+  const removeItem = (itemId) => {
+    const newItems = items.filter((item) => item.id !== itemId);
+    setItems(newItems);
+    toast.success("item deleted");
+  };
   return (
     <section className="section-center">
       <ToastContainer position="top-center" />
