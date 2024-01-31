@@ -4,6 +4,9 @@ import { nanoid } from "nanoid";
 import { ToastContainer, toast } from "react-toastify";
 import Items from "./Items";
 
+const setLocalStorage = (items) => {
+  localStorage.setItem("list", JSON.stringify(items));
+};
 const App = () => {
   const [items, setItems] = useState([]);
   const addItem = (itemName) => {
