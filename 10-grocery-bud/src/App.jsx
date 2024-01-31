@@ -19,6 +19,7 @@ const getLocalStorage = () => {
 
 const App = () => {
   const [items, setItems] = useState([]);
+
   const addItem = (itemName) => {
     const newItem = {
       name: itemName,
@@ -27,6 +28,7 @@ const App = () => {
     };
     const newItems = [...items, newItem];
     setItems(newItems);
+    setLocalStorage(newItems);
     toast.success("item added to the list");
   };
   const editItem = (itemId) => {
@@ -38,10 +40,12 @@ const App = () => {
       return item;
     });
     setItems(newItems);
+    setLocalStorage(newItems);
   };
   const removeItem = (itemId) => {
     const newItems = items.filter((item) => item.id !== itemId);
     setItems(newItems);
+    setLocalStorage(newItems);
     toast.success("item deleted");
   };
   return (
