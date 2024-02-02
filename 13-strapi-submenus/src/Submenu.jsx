@@ -2,11 +2,17 @@ import { useGlobalContext } from "./context";
 import sublinks from "./data";
 
 const Submenu = () => {
-  const { pageId } = useGlobalContext();
+  const { pageId, setPageId } = useGlobalContext();
 
   const currentPage = sublinks.find((item) => item.pageId === pageId);
+  const handleMouseLeave = () => {
+    setPageId(null);
+  };
   return (
-    <div className={currentPage ? "submenu show-submenu" : "submenu"}>
+    <div
+      className={currentPage ? "submenu show-submenu" : "submenu"}
+      onMouseLeave={handleMouseLeave}
+    >
       <h5>{currentPage?.page}</h5>
       <div
         className="submenu-links"
