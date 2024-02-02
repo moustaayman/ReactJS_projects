@@ -4,7 +4,7 @@ const GlobalContext = createContext();
 
 export const useGlobalContext = () => useContext(GlobalContext);
 
-const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
   const [isSidebarOpen, setisSidebarOpen] = useState(false);
   const [isModalOpen, setisModalOpen] = useState(false);
 
@@ -36,4 +36,3 @@ const AppProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
-export default AppProvider;
