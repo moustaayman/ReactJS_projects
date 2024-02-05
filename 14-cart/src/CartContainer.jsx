@@ -1,8 +1,10 @@
 import CartItem from "./CartItem";
+import { useGlobalContext } from "./context";
 import cartItems from "./data";
-const CartContainer = () => {
-  const cartArray = [...cartItems];
 
+const CartContainer = () => {
+  const { cart } = useGlobalContext();
+  const cartArray = Array.from(cart.entries());
   if (cartArray.length === 0) {
     return (
       <section className="cart">
@@ -23,7 +25,8 @@ const CartContainer = () => {
       {/* cart items */}
       <div>
         {cartArray.map((cartItem) => {
-          return <CartItem key={cartItem.id} {...cartItem} />;
+          const [id, item] = cartItem;
+          return <CartItem key={id} {...item} />;
         })}
       </div>
       {/* cart footer */}
