@@ -4,6 +4,7 @@ import { createContext } from "react";
 import { reducer } from "./reducer";
 import { CLEAR_CART, DECREASE, INCREASE, REMOVE_ITEM } from "./actions";
 import cartItems from "./data";
+import { getTotals } from "./utils";
 
 const AppContext = createContext();
 
@@ -14,7 +15,7 @@ const defaultState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-
+  const { totalAmount, totalCost } = getTotals(state.cart);
   const clearCart = () => {
     dispatch({ type: CLEAR_CART });
   };
@@ -29,7 +30,15 @@ const AppProvider = ({ children }) => {
   };
   return (
     <AppContext.Provider
-      value={{ ...state, clearCart, removeItem, increase, decrease }}
+      value={{
+        ...state,
+        clearCart,
+        removeItem,
+        increase,
+        decrease,
+        totalAmount,
+        totalCost,
+      }}
     >
       {children}
     </AppContext.Provider>
