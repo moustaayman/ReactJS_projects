@@ -1,4 +1,4 @@
-import { CLEAR_CART, INCREASE, REMOVE_ITEM } from "./actions";
+import { CLEAR_CART, DECREASE, INCREASE, REMOVE_ITEM } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -15,6 +15,20 @@ export const reducer = (state, action) => {
       const newCart = new Map(state.cart);
       const item = newCart.get(action.payload.id);
       const newItem = { ...item, amount: item.amount + 1 };
+      newCart.set(item.id, newItem);
+      return { ...state, cart: newCart };
+      break;
+    }
+    case DECREASE: {
+      const newCart = new Map(state.cart);
+      const item = newCart.get(action.payload.id);
+
+      if (item.amount == 1) {
+        newCart.delete(item.id);
+        return { ...state, cart: newCart };
+      }
+
+      const newItem = { ...item, amount: item.amount - 1 };
       newCart.set(item.id, newItem);
       return { ...state, cart: newCart };
       break;
