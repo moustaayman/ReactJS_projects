@@ -5,6 +5,7 @@ import { useGlobalContext } from "./context";
 const url =
   "https://api.unsplash.com/search/photos?client_id=X3c-NbRfZvL-N_UKzp-VK9pNFp0pcvEdPdm8hEutyCg";
 const Gallery = () => {
+  console.log();
   const { searchText } = useGlobalContext();
   const response = useQuery({
     queryKey: ["images", searchText],
@@ -13,7 +14,6 @@ const Gallery = () => {
       return result.data;
     },
   });
-  console.log(response);
   if (response.isLoading) {
     return (
       <section className="image-container">
@@ -29,7 +29,6 @@ const Gallery = () => {
     );
   }
   const results = response.data.results;
-  console.log(results);
   if (results.length < 1) {
     return (
       <section className="image-container">
