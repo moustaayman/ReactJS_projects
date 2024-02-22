@@ -6,7 +6,7 @@ export const useGlobalContext = () => useContext(AppContext);
 
 const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  const [searchText, setSearchText] = useState("cat");
+  const [searchText, setSearchText] = useState("happy");
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
     setIsDarkTheme(newDarkTheme);
@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
   };
   return (
     <AppContext.Provider
-      value={{ isDarkTheme, toggleDarkTheme, setSearchText }}
+      value={{ isDarkTheme, toggleDarkTheme, setSearchText, searchText }}
     >
       {children}
     </AppContext.Provider>
