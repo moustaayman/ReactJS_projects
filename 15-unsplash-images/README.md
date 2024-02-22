@@ -1,6 +1,6 @@
 # Unsplash Images App
 
-A React applicationthat provides users with access to a vast collection of high-quality stock photos from Unsplash.
+A React application that provides users with access to a vast collection of high-quality stock photos from Unsplash.
 
 ### Functionalities
 
@@ -12,4 +12,5 @@ A React applicationthat provides users with access to a vast collection of high-
 ![alt text](image.png)
 
 **Dark Theme**
+
 ![alt text](image-1.png)
