@@ -7,6 +7,7 @@ import {
   Error,
   About,
 } from "./pages/index";
+import { loader } from "./pages/Landing";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: loader,
         element: <Landing />,
       },
       {
