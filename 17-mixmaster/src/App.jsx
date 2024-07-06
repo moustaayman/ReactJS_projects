@@ -6,6 +6,7 @@ import {
   Newsletter,
   Error,
   About,
+  SinglePageError,
 } from "./pages/index";
 import { loader } from "./pages/Landing";
 
@@ -19,18 +20,22 @@ const router = createBrowserRouter([
         index: true,
         loader: loader,
         element: <Landing />,
+        errorElement: <SinglePageError />,
       },
       {
         path: "/about",
         element: <About />,
+        errorElement: <SinglePageError />,
       },
       {
         path: "/cocktail",
         element: <Cocktail />,
+        errorElement: <SinglePageError />,
       },
       {
         path: "/newsletter",
         element: <Newsletter />,
+        errorElement: <SinglePageError />,
       },
     ],
   },
