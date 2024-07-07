@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         errorElement: <SinglePageError />,
       },
       {
-        path: "/cocktail",
+        path: "/cocktail/:id",
         element: <Cocktail />,
         errorElement: <SinglePageError />,
       },
