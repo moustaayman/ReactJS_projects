@@ -12,7 +12,6 @@ export const cocktailLoader = async ({ params }) => {
 const Cocktail = () => {
   const { drink } = useLoaderData();
   const singleDrink = drink.drinks[0];
-  console.log(singleDrink);
   const {
     strDrink: name,
     strDrinkThumb: image,
@@ -21,6 +20,12 @@ const Cocktail = () => {
     strGlass: glass,
     strInstructions: instructions,
   } = singleDrink;
+
+  const validIngredients = Object.keys(singleDrink)
+    .filter(
+      (key) => key.startsWith("strIngredient") && singleDrink[key] != null
+    )
+    .map((key) => singleDrink[key]);
 
   return (
     <Wrapper>
@@ -47,7 +52,14 @@ const Cocktail = () => {
           </p>
           <p>
             <span className="drink-data">ingredients :</span>
-            {"ingredientsss..."}
+            {validIngredients.map((item, index) => {
+              return (
+                <span className="ing" key={item}>
+                  {item}
+                  {index < validIngredients.length - 1 ? "," : ""}
+                </span>
+              );
+            })}
           </p>
           <p>
             <span className="drink-data">instructons :</span> {instructions}
