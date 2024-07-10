@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import CocktailList from "../components/CocktailList";
+import SearchForm from "../components/SearchForm";
 
-export const loader = async () => {
-  const searchInput = "margarita";
+export const loader = async ({ request }) => {
+  const url = new URL(request.url);
+  const searchInput = url.searchParams.get("search") || "";
   const response = await axios.get(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`
   );
@@ -12,7 +14,12 @@ export const loader = async () => {
 
 const Landing = () => {
   const { drinks, searchInput } = useLoaderData();
-  return <CocktailList drinks={drinks} />;
+  return (
+    <>
+      <SearchForm searchInput={searchInput} />
+      <CocktailList drinks={drinks} />
+    </>
+  );
 };
 
 export default Landing;
