@@ -17,11 +17,14 @@ const searchCocktailsQuery = (searchInput) => {
   };
 };
 
-export const loader = async ({ request }) => {
-  const url = new URL(request.url);
-  const searchInput = url.searchParams.get("search") || "";
-  return { searchInput };
-};
+export const loader =
+  (queryClient) =>
+  async ({ request }) => {
+    const url = new URL(request.url);
+    const searchInput = url.searchParams.get("search") || "";
+    await queryClient.ensureQueryData(searchCocktailsQuery(searchInput));
+    return { searchInput };
+  };
 
 const Landing = () => {
   const { searchInput } = useLoaderData();
