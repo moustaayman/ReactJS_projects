@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: loader,
+        loader: loader(queryClient),
         element: <Landing />,
         errorElement: <SinglePageError />,
       },
@@ -59,6 +59,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}></RouterProvider>;
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 };
