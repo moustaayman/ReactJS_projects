@@ -7,5 +7,5 @@ A Single Page Application (SPA) built with React, _React Router_, _React Query_ 
     •	Search Cocktails: Find cocktails by name.
     •	Cocktail Details: View detailed information about selected cocktails.
     •	Styled Components: Consistent and reusable styling.
-    • React Query: Efficient data fetching and caching
+    •   React Query: Efficient data fetching and caching
     •	Error Handling: handling of API errors and loading states.
